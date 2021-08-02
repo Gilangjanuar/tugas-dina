@@ -15,7 +15,7 @@ class CarController extends Controller
             if ($request->type == "TERLARIS") {
                 $data = Sale::query()->select(['cars.*', DB::raw('COUNT(sales.car_id) AS jml')])
                     ->join('cars', 'sales.car_id', '=', 'cars.id')
-                    ->groupBy('sales.car_id', 'cars.id', 'car_name', 'car_type', 'car_color', 'car_capacity', 'car_price', 'cars.created_at', 'cars.updated_at')
+                    ->groupBy('sales.car_id', 'cars.id', 'car_name', 'car_type', 'car_color', 'car_capacity', 'car_price','hex_color', 'cars.created_at', 'cars.updated_at')
                     ->orderBy('jml', 'DESC')
                     ->get();
             }
@@ -23,7 +23,7 @@ class CarController extends Controller
             if ($request->type == "TERMAHAL") {
                 $data = Sale::query()->select(['cars.*', DB::raw('COUNT(sales.car_id) AS jml')])
                     ->join('cars', 'sales.car_id', '=', 'cars.id')
-                    ->groupBy('sales.car_id', 'cars.id', 'car_name', 'car_type', 'car_color', 'car_capacity', 'car_price', 'cars.created_at', 'cars.updated_at')
+                    ->groupBy('sales.car_id', 'cars.id', 'car_name', 'car_type', 'car_color', 'car_capacity', 'car_price','hex_color', 'cars.created_at', 'cars.updated_at')
                     ->orderBy('cars.car_price', 'DESC')
                     ->get();
             }
@@ -31,7 +31,7 @@ class CarController extends Controller
             if ($request->type == "TERMURAH") {
                 $data = Sale::query()->select(['cars.*', DB::raw('COUNT(sales.car_id) AS jml')])
                     ->join('cars', 'sales.car_id', '=', 'cars.id')
-                    ->groupBy('sales.car_id', 'cars.id', 'car_name', 'car_type', 'car_color', 'car_capacity', 'car_price', 'cars.created_at', 'cars.updated_at')
+                    ->groupBy('sales.car_id', 'cars.id', 'car_name', 'car_type', 'car_color', 'car_capacity', 'car_price', 'hex_color','cars.created_at', 'cars.updated_at')
                     ->orderBy('cars.car_price', 'ASC')
                     ->get();
             }

@@ -19,6 +19,7 @@ class CreateCarsTable extends Migration
             $table->string('car_type')->comment('Manual / Automatic');
             $table->string('car_color');
             $table->integer('car_capacity');
+            $table->string('hex_color');
             $table->bigInteger('car_price');
             $table->timestamps();
         });

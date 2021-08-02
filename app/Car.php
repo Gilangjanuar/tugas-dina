@@ -36,6 +36,7 @@ class Car extends Model
         'car_color',
         'car_capacity',
         'car_price',
+        'hex_color',
         'created_at',
         'updated_at'
     ];
